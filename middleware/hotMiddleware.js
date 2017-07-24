@@ -1,7 +1,7 @@
-import hotMiddleware from 'webpack-hot-middleware'
-import { PassThrough } from 'stream'
+const hotMiddleware = require('webpack-hot-middleware')
+const { PassThrough } = require('stream')
 
-export default (compiler, opts) => {
+module.exports = (compiler, opts) => {
   const expressMiddleware = hotMiddleware(compiler, opts)
   return async (ctx, next) => {
     let stream = new PassThrough()

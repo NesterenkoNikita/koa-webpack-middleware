@@ -1,6 +1,6 @@
-import devMiddleware from 'webpack-dev-middleware'
+const devMiddleware = require('webpack-dev-middleware')
 
-export default (compiler, opts) => {
+module.exports = (compiler, opts) => {
   const expressMiddleware = devMiddleware(compiler, opts)
   return async (ctx, next) => {
     await expressMiddleware(ctx.req, {
